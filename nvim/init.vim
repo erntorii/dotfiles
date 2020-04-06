@@ -13,6 +13,7 @@ set nowritebackup
 
 set hidden        " バッファが編集中でもその他のファイルを開けるように
 
+filetype plugin indent on
 set expandtab     " タブ入力を複数の空白入力に置き換える
 set tabstop=2     " 画面上でタブ文字が占める幅
 set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
@@ -45,8 +46,8 @@ vnoremap j gj
 vnoremap k gk
 
 " バッファ移動の操作
-nnoremap bp :bprev<CR>
-nnoremap bn :bnext<CR>
+nnoremap 8 :bprev<CR>
+nnoremap 9 :bnext<CR>
 nnoremap bf :bfirst<CR>
 nnoremap bl :blast<CR>
 " バッファの削除
