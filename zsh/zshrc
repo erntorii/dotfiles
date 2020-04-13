@@ -1,0 +1,40 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# ------------------------------------------------------------ 
+# Neovimの設定ファイル読み込み先
+# ------------------------------------------------------------ 
+export XDG_CONFIG_HOME=$HOME/dotfiles
+
+# ------------------------------------------------------------ 
+# fzf
+# ------------------------------------------------------------ 
+export PATH="$PATH:$HOME/.fzf/bin"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 30% --border'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ------------------------------------------------------------ 
+# source zshlocal
+# ------------------------------------------------------------ 
+if [ -f ~/.zshlocal ]; then
+  source ~/.zshlocal
+fi
+
+# ------------------------------------------------------------ 
+# alias
+# ------------------------------------------------------------ 
+alias vi='nvim'
+alias vi.='nvim . -c GFiles -c Tnew -c Tnew -c Tnew -c TcloseAll'
+alias aws_mfa='oathtool --totp --base32 $MFA_SECRET_KEY | pbcopy ; pbpaste'
