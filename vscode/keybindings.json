@@ -35,9 +35,4 @@
     "command": "workbench.action.closeQuickOpen",
     "when": "inQuickOpen"
   },
-  // 既定コマンドの無効化
-  {
-    "key": "cmd+[IntlRo]",
-    "command": "-workbench.action.zoomOut"
-  },
 ]
