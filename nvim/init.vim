@@ -26,7 +26,7 @@ set ignorecase    " 検索パターンに大文字小文字を区別しない
 set smartcase     " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 
 " ヤンクをクリップボードへ繋ぐ
-set clipboard+=unnamed
+set clipboard=unnamed
 
 set title         " タイトルを表示
 set number        " 行番号表示
@@ -36,6 +36,12 @@ set showmatch     " 括弧入力時の対応する括弧を表示
 " ------------------------------------------------------------
 "  key bind
 " ------------------------------------------------------------
+" insertモードでemacsのキーバインドを使えるようにする
+imap <C-p> <Up>
+imap <C-n> <Down>
+imap <C-b> <Left>
+imap <C-f> <Right>
+
 " 入力モードでjjと入力した場合はESCとみなす
 inoremap jj <Esc>
 

@@ -16,6 +16,7 @@ hook_add = '''
 [[plugins]] # neoterm
 repo = 'kassio/neoterm'
 hook_add = '''
+  let g:neoterm_autoinsert = 1
   let g:neoterm_default_mod = 'botright'
   let g:neoterm_autoscroll = 1
   let g:neoterm_automap_keys = '<C-c>'
@@ -35,7 +36,7 @@ repo = 'vim-airline/vim-airline'
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 hook_add = '''
-  let g:airline_powerline_fonts = 1
+  let g:airline_powerline_fonts = 0
   let g:airline_theme = 'nord'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -51,6 +52,7 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]] # linters
 repo = 'dense-analysis/ale'
 hook_add = '''
+  let g:ale_lint_on_text_changed = 0
   let g:ale_lint_on_enter = 1
   let g:ale_lint_on_save = 1
   let g:ale_linters = {
@@ -64,10 +66,7 @@ hook_add = '''
 repo = 'Yggdroot/indentLine'
 
 [[plugins]] # コメントアウト
-repo = 'tomtom/tcomment_vim'
-hook_add = '''
-  vnoremap ? :'<,'>TComment<CR>
-'''
+repo = 'tpope/vim-commentary'
 
 [[plugins]] # 括弧のレインボーハイライト
 repo = 'luochen1990/rainbow'
@@ -95,6 +94,13 @@ on_ft = ['toml']
 repo = 'slim-template/vim-slim'
 on_ft = ['slim']
 
+[[plugins]]
+repo = 'elzr/vim-json'
+hook_add = '''
+  let g:vim_json_syntax_conceal = 0
+'''
+on_ft = ['json']
+
 # ------------------------------------------------------------
 # ruby
 # ------------------------------------------------------------
@@ -104,6 +110,30 @@ repo = 'tpope/vim-rails'
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = ['ruby']
+
+# ------------------------------------------------------------
+# terraform
+# ------------------------------------------------------------
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+  let g:terraform_fmt_on_save=1
+'''
+
+[[plugins]]
+repo = 'juliosueiras/vim-terraform-completion'
+
+[[plugins]] # Only for Linter
+repo = 'neomake/neomake'
+
+# ------------------------------------------------------------
+# completion
+# ------------------------------------------------------------
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+'''
 
 # ------------------------------------------------------------
 # fzf
@@ -124,7 +154,7 @@ hook_add = '''
   \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \ <bang>0)
   nnoremap <C-g> :Rg<Space>
-  nnoremap <C-p> :GFiles<CR>
+  nnoremap <C-p> :Files<CR>
   nnoremap <C-y> :History<CR>
 '''
 

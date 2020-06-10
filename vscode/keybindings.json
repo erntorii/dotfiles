@@ -1,0 +1,50 @@
+[
+  // サイドバーへの移動
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusSideBar",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // サイドバーからの移動
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!editorFocus"
+  },
+  // 前のタブへの移動
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.previousEditor",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // 次のタブへの移動
+  {
+    "key": "ctrl+]",
+    "command": "workbench.action.nextEditor",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // クイックオープンを開く
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // クイックオープンを閉じる
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen"
+  },
+  // エクスプローラーからファイルを開く
+  {
+    "key": "Enter",
+    "command": "list.select",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  // エクスプローラーでのファイル名の変更
+  {
+    "key": "ctrl+r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+]

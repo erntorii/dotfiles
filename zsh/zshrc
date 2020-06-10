@@ -18,12 +18,30 @@ fi
 export XDG_CONFIG_HOME=$HOME/dotfiles
 
 # ------------------------------------------------------------ 
+# rbenv
+# ------------------------------------------------------------ 
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+# ------------------------------------------------------------ 
+# mysql
+# ------------------------------------------------------------ 
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# ------------------------------------------------------------ 
 # fzf
 # ------------------------------------------------------------ 
 export PATH="$PATH:$HOME/.fzf/bin"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 30% --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ------------------------------------------------------------ 
+# AWS CLI completer
+# ------------------------------------------------------------ 
+if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
+  source /usr/local/bin/aws_zsh_completer.sh
+fi
 
 # ------------------------------------------------------------ 
 # source zshlocal
@@ -37,4 +55,8 @@ fi
 # ------------------------------------------------------------ 
 alias vi='nvim'
 alias vi.='nvim . -c GFiles -c Tnew -c Tnew -c Tnew -c TcloseAll'
-alias aws_mfa='oathtool --totp --base32 $MFA_SECRET_KEY | pbcopy ; pbpaste'
+alias aws_mfa='oathtool --totp --base32 $AWS_MFA_SECRET_KEY | pbcopy ; pbpaste'
+alias iam_mfa='oathtool --totp --base32 $IAM_MFA_SECRET_KEY | pbcopy ; pbpaste'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.12.25/terraform terraform

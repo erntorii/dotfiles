@@ -1,0 +1,17 @@
+{
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontFamily": "Source Han Code JP",
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.color": "#616e88",
+    "material-icon-theme.saturation": 0.6,
+    "material-icon-theme.hidesExplorerArrows": true,
+
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "window.zoomLevel": 0,
+}
