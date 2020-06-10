@@ -11,17 +11,17 @@
     "command": "workbench.action.focusFirstEditorGroup",
     "when": "!editorFocus"
   },
-  // 前のタブへの移動
+  // エクスプローラーからファイルを開く
   {
-    "key": "ctrl+[",
-    "command": "workbench.action.previousEditor",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "key": "Enter",
+    "command": "list.select",
+    "when": "explorerViewletVisible && filesExplorerFocus"
   },
-  // 次のタブへの移動
+  // エクスプローラーでのファイル名の変更
   {
-    "key": "ctrl+]",
-    "command": "workbench.action.nextEditor",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "key": "ctrl+r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // クイックオープンを開く
   {
@@ -35,16 +35,9 @@
     "command": "workbench.action.closeQuickOpen",
     "when": "inQuickOpen"
   },
-  // エクスプローラーからファイルを開く
+  // 既定コマンドの無効化
   {
-    "key": "Enter",
-    "command": "list.select",
-    "when": "explorerViewletVisible && filesExplorerFocus"
-  },
-  // エクスプローラーでのファイル名の変更
-  {
-    "key": "ctrl+r",
-    "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus"
+    "key": "cmd+[IntlRo]",
+    "command": "-workbench.action.zoomOut"
   },
 ]

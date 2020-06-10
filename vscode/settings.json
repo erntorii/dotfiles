@@ -13,5 +13,18 @@
 
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
-    "window.zoomLevel": 0,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["8"],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": ["9"],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+    ],
 }

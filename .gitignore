@@ -1,4 +1,5 @@
 .vscode
+configstore
 nvim/.netrwhist
 nvim/dein
 zsh/zshlocal
