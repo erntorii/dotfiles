@@ -1,15 +1,27 @@
 [
-  // サイドバーへの移動
+  // ファイルに移動
   {
-    "key": "ctrl+w ctrl+w",
-    "command": "workbench.action.focusSideBar",
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
     "when": "editorFocus && vim.mode == 'Normal'"
   },
-  // サイドバーからの移動
+  // エクスプローラーを表示
+  {
+    "key": "ctrl+a",
+    "command": "workbench.view.explorer",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // 最初のエディターグループにフォーカス
   {
     "key": "ctrl+w ctrl+w",
     "command": "workbench.action.focusFirstEditorGroup",
     "when": "!editorFocus"
+  },
+  // サイドバー内にフォーカス
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusSideBar",
+    "when": "sideBarVisible && editorFocus && vim.mode == 'Normal'"
   },
   // エクスプローラーからファイルを開く
   {
@@ -23,16 +35,31 @@
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
-  // クイックオープンを開く
+  // サイドバーを閉じる
   {
-    "key": "ctrl+p",
-    "command": "workbench.action.quickOpen",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "key": "q",
+    "command": "workbench.action.closeSidebar",
+    "when": "vim.mode == 'Normal'"
   },
-  // クイックオープンを閉じる
+  // 統合ターミナルを表示
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  // パネル内にフォーカス
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusPanel",
+    "when": "activePanel && editorFocus && vim.mode == 'Normal'"
+  },
+  // 統合ターミナルを閉じる
   {
     "key": "ctrl+h",
-    "command": "workbench.action.closeQuickOpen",
-    "when": "inQuickOpen"
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.closePanel",
+    "when": "!terminalFocus"
   },
 ]

@@ -54,7 +54,7 @@ fi
 # alias
 # ------------------------------------------------------------ 
 alias vi='nvim'
-alias vi.='nvim . -c GFiles -c Tnew -c Tnew -c Tnew -c TcloseAll'
+alias vi.='nvim . -c Files'
 alias aws_mfa='oathtool --totp --base32 $AWS_MFA_SECRET_KEY | pbcopy ; pbpaste'
 alias iam_mfa='oathtool --totp --base32 $IAM_MFA_SECRET_KEY | pbcopy ; pbpaste'
 
