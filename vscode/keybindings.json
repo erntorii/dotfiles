@@ -5,6 +5,12 @@
     "command": "workbench.action.quickOpen",
     "when": "editorFocus && vim.mode == 'Normal'"
   },
+  // 現在のエディターを閉じる
+  {
+    "key": "ctrl+b ctrl+d",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
   // エクスプローラーを表示
   {
     "key": "ctrl+a",
@@ -29,10 +35,28 @@
     "command": "list.select",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
+  // エクスプローラーでの新しいファイル
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  // エクスプローラーでの新しいフォルダー
+  {
+    "key": "ctrl+f",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
   // エクスプローラーでのファイル名の変更
   {
     "key": "ctrl+r",
     "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  // エクスプローラーでのフォルダーまたはファイルの削除
+  {
+    "key": "ctrl+d",
+    "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // サイドバーを閉じる

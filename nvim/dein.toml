@@ -2,8 +2,8 @@
 repo = 'arcticicestudio/nord-vim'
 hook_add = '''
   colorscheme nord
-  let g:nord_cursor_line_number_background = 1
-  let g:nord_uniform_diff_background = 1
+  let g:nord_cursor_line_number_background = 0
+  let g:nord_uniform_diff_background = 0
 '''
 
 [[plugins]] # NERDTree
@@ -25,6 +25,8 @@ hook_add = '''
   nnoremap <silent><C-l> :Tclear<CR>
   nnoremap <silent><C-h> :TcloseAll<CR>
   nnoremap td :Tclose!<CR>
+  tnoremap <silent><C-w><C-w> <C-\><C-n><C-w><C-w>
+  tnoremap <silent><C-h> <C-\><C-n>:TcloseAll<CR>
 '''
 
 [[plugins]] # ウィンドウの幅をctr+eで調整
@@ -45,6 +47,10 @@ hook_add = '''
 
 [[plugins]] # gitの各種コマンド実行
 repo = 'tpope/vim-fugitive'
+hook_add = '''
+  :command Gs Gstatus
+  :command Gd Gvdiff
+'''
 
 [[plugins]] # gitのHEADとの差分を表示
 repo = 'airblade/vim-gitgutter'
