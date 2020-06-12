@@ -5,7 +5,7 @@ set fileencoding=utf-8
 set termencoding=utf8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
-" set ambiwidth=double
+set ambiwidth=double
 
 set nobackup
 set noswapfile
@@ -89,3 +89,8 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+" ------------------------------------------------------------
+" colorscheme
+" ------------------------------------------------------------
+colorscheme nord

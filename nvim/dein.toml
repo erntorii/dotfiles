@@ -1,7 +1,6 @@
 [[plugins]] # color scheme
 repo = 'arcticicestudio/nord-vim'
 hook_add = '''
-  colorscheme nord
   let g:nord_cursor_line_number_background = 0
   let g:nord_uniform_diff_background = 0
 '''
@@ -61,6 +60,8 @@ hook_add = '''
   let g:ale_lint_on_text_changed = 0
   let g:ale_lint_on_enter = 1
   let g:ale_lint_on_save = 1
+  let g:ale_sign_column_always = 1
+  let g:ale_set_highlights = 0
   let g:ale_linters = {
     \ 'ruby': ['rubocop', 'solargraph'],
     \ }
@@ -124,21 +125,6 @@ on_ft = ['ruby']
 repo = 'hashivim/vim-terraform'
 hook_add = '''
   let g:terraform_fmt_on_save=1
-'''
-
-[[plugins]]
-repo = 'juliosueiras/vim-terraform-completion'
-
-[[plugins]] # Only for Linter
-repo = 'neomake/neomake'
-
-# ------------------------------------------------------------
-# completion
-# ------------------------------------------------------------
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
 '''
 
 # ------------------------------------------------------------
