@@ -22,10 +22,10 @@ hook_add = '''
   nnoremap <C-n> :Tnew<CR>
   nnoremap <silent><C-t> :<c-u>exec v:count.'Topen'<CR>
   nnoremap <silent><C-l> :Tclear<CR>
-  nnoremap <silent><C-h> :TcloseAll<CR>
+  nnoremap <silent><C-q> :TcloseAll<CR>
   nnoremap td :Tclose!<CR>
   tnoremap <silent><C-w><C-w> <C-\><C-n><C-w><C-w>
-  tnoremap <silent><C-h> <C-\><C-n>:TcloseAll<CR>
+  tnoremap <silent><C-q> <C-\><C-n>:TcloseAll<CR>
 '''
 
 [[plugins]] # ウィンドウの幅をctr+eで調整
@@ -61,12 +61,14 @@ hook_add = '''
   let g:ale_lint_on_enter = 1
   let g:ale_lint_on_save = 1
   let g:ale_sign_column_always = 1
-  let g:ale_set_highlights = 0
   let g:ale_linters = {
     \ 'ruby': ['rubocop', 'solargraph'],
+    \ 'dockerfile': ['dockerfile_lint', 'hadolint'],
+    \ 'hcl': ['terraform-fmt'],
     \ }
-  let g:ale_sign_error='E'
-  let g:ale_sign_warning='W'
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 '''
 
 [[plugins]] # インデントの可視化
@@ -157,6 +159,9 @@ hook_add = '''
 repo = 'prabirshrestha/async.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  let g:lsp_diagnostics_enabled = 0
+'''
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
 [[plugins]]

@@ -5,7 +5,7 @@ set fileencoding=utf-8
 set termencoding=utf8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
-set ambiwidth=double
+" set ambiwidth=double
 
 set nobackup
 set noswapfile
@@ -59,6 +59,15 @@ nnoremap bl :blast<CR>
 " バッファの削除
 nnoremap bd :bdelete<CR>
 
+" コマンドラインモードでbashのキーバインドを使えるようにする
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+
 " コマンド履歴をフィルタリングして辿る
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -68,6 +77,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " terminal emulatorでノーマルモードに戻る
 tnoremap <silent> <ESC> <C-\><C-n>
+
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
 
 " ------------------------------------------------------------
 " dein.vim
