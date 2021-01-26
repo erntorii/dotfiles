@@ -156,18 +156,18 @@ hook_add = '''
 # vim-lsp
 # ------------------------------------------------------------
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-[[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
+  " lintをオフにする
   let g:lsp_diagnostics_enabled = 0
 '''
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 hook_add = '''
   let g:lsp_settings_servers_dir = '~/.dein/vim-lsp-settings/servers'
 '''
+
+[[plugins]] # オートコンプリートの使用
+repo = 'prabirshrestha/asyncomplete.vim'
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
