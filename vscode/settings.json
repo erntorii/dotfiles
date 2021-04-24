@@ -1,7 +1,7 @@
 {
     "editor.fontSize": 12,
     "terminal.integrated.fontSize": 12,
-    "editor.fontFamily": "Source Han Code JP",
+    "editor.fontFamily": "Source Han Mono",
     "editor.tabSize": 2,
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
@@ -10,7 +10,7 @@
     "material-icon-theme.folders.color": "#616e88",
     "material-icon-theme.saturation": 0.6,
     "material-icon-theme.hidesExplorerArrows": true,
-
+    "editor.minimap.enabled": false,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.normalModeKeyBindings": [
@@ -27,6 +27,5 @@
             ]
         },
     ],
-
     "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YXdzNFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiMDAwMDAwXCIsXCJGRjAwMDBcIl0sXCJmb3JtYXRXaWR0aFwiOlwiMjQwXCIsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo4MjcsXCJoZWlnaHRcIjoxMTY5fSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
 }

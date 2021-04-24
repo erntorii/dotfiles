@@ -13,12 +13,16 @@ set nowritebackup
 
 set hidden        " バッファが編集中でもその他のファイルを開けるように
 
-filetype plugin indent on
 set expandtab     " タブ入力を複数の空白入力に置き換える
 set tabstop=2     " 画面上でタブ文字が占める幅
 set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set smartindent   " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set shiftwidth=2  " smartindentで増減する幅
+
+"ファイルタイプに合わせたインデントを利用
+filetype plugin indent on
+"sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtabの略
+autocmd FileType text setlocal sw=8 sts=8 ts=8 et
 
 " ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>

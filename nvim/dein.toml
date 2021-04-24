@@ -22,10 +22,10 @@ hook_add = '''
   nnoremap <C-n> :Tnew<CR>
   nnoremap <silent><C-t> :<c-u>exec v:count.'Topen'<CR>
   nnoremap <silent><C-l> :Tclear<CR>
-  nnoremap <silent><C-q> :TcloseAll<CR>
+  nnoremap <silent><C-q> :Tclose<CR>
   nnoremap td :Tclose!<CR>
   tnoremap <silent><C-w><C-w> <C-\><C-n><C-w><C-w>
-  tnoremap <silent><C-q> <C-\><C-n>:TcloseAll<CR>
+  tnoremap <silent><C-q> <C-\><C-n>:Tclose<CR>
 '''
 
 [[plugins]] # ウィンドウの幅をctr+eで調整
@@ -98,6 +98,10 @@ repo = 'tpope/vim-repeat'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'tpope/vim-haml'
+on_ft = ['haml']
 
 [[plugins]]
 repo = 'slim-template/vim-slim'

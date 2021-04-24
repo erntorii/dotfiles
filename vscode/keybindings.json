@@ -7,7 +7,7 @@
   },
   // 現在のエディターを閉じる
   {
-    "key": "ctrl+b ctrl+d",
+    "key": "b d",
     "command": "workbench.action.closeActiveEditor",
     "when": "editorFocus && vim.mode == 'Normal'"
   },
@@ -49,7 +49,7 @@
   },
   // エクスプローラーでのファイル名の変更
   {
-    "key": "ctrl+r",
+    "key": "ctrl+m",
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
@@ -70,6 +70,24 @@
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal"
   },
+  // 新しい統合ターミナルの作成
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // 前のターミナルにフォーカス
+  {
+    "key": "8",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  // 次のターミナルにフォーカス
+  {
+    "key": "9",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
   // パネル内にフォーカス
   {
     "key": "ctrl+w ctrl+w",
@@ -78,11 +96,11 @@
   },
   // 統合ターミナルを閉じる
   {
-    "key": "ctrl+h",
+    "key": "ctrl+q",
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
-    "key": "ctrl+h",
+    "key": "ctrl+q",
     "command": "workbench.action.closePanel",
     "when": "!terminalFocus"
   },
