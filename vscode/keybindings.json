@@ -37,25 +37,25 @@
   },
   // エクスプローラーでの新しいファイル
   {
-    "key": "ctrl+n",
+    "key": "m n",
     "command": "explorer.newFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // エクスプローラーでの新しいフォルダー
   {
-    "key": "ctrl+f",
+    "key": "m a",
     "command": "explorer.newFolder",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // エクスプローラーでのファイル名の変更
   {
-    "key": "ctrl+m",
+    "key": "m m",
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // エクスプローラーでのフォルダーまたはファイルの削除
   {
-    "key": "ctrl+d",
+    "key": "m d",
     "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
