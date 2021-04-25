@@ -1,8 +1,79 @@
 [
+  // ------------------------------------------------------------
+  // #検索
+  // ------------------------------------------------------------
+
   // ファイルに移動
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+
+  // ------------------------------------------------------------
+  // #フォーカス移動
+  // ------------------------------------------------------------
+
+  // 最初のエディターグループにフォーカス
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "sideBarFocus || panelFocus"
+  },
+  // サイドバー内にフォーカス
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusSideBar",
+    "when": "sideBarVisible && editorFocus && vim.mode == 'Normal' || sideBarVisible && panelFocus"
+  },
+  // パネル内にフォーカス
+  {
+    "key": "ctrl+w ctrl+w",
+    "command": "workbench.action.focusPanel",
+    "when": "activePanel && editorFocus && vim.mode == 'Normal'"
+  },
+
+  // ------------------------------------------------------------
+  // #閉じる操作
+  // ------------------------------------------------------------
+
+  // サイドバーを閉じる
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.closeSidebar",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "q",
+    "command": "workbench.action.closeSidebar",
+    "when": "sideBarFocus || editorFocus && vim.mode == 'Normal'"
+  },
+  // パネルを閉じる
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.closePanel",
+    "when": "panelFocus || editorFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus"
+  },
+
+  // ------------------------------------------------------------
+  // #エディター
+  // ------------------------------------------------------------
+
+  // 前のエディターにフォーカス
+  {
+    "key": "8",
+    "command": "workbench.action.previousEditor",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // 次のエディターにフォーカス
+  {
+    "key": "9",
+    "command": "workbench.action.nextEditor",
     "when": "editorFocus && vim.mode == 'Normal'"
   },
   // 現在のエディターを閉じる
@@ -11,23 +82,16 @@
     "command": "workbench.action.closeActiveEditor",
     "when": "editorFocus && vim.mode == 'Normal'"
   },
+
+  // ------------------------------------------------------------
+  // #エクスプローラー
+  // ------------------------------------------------------------
+
   // エクスプローラーを表示
   {
     "key": "ctrl+a",
     "command": "workbench.view.explorer",
     "when": "editorFocus && vim.mode == 'Normal'"
-  },
-  // 最初のエディターグループにフォーカス
-  {
-    "key": "ctrl+w ctrl+w",
-    "command": "workbench.action.focusFirstEditorGroup",
-    "when": "!editorFocus"
-  },
-  // サイドバー内にフォーカス
-  {
-    "key": "ctrl+w ctrl+w",
-    "command": "workbench.action.focusSideBar",
-    "when": "sideBarVisible && editorFocus && vim.mode == 'Normal'"
   },
   // エクスプローラーからファイルを開く
   {
@@ -59,20 +123,20 @@
     "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
-  // サイドバーを閉じる
-  {
-    "key": "q",
-    "command": "workbench.action.closeSidebar",
-    "when": "vim.mode == 'Normal'"
-  },
+
+  // ------------------------------------------------------------
+  // #統合ターミナル
+  // ------------------------------------------------------------
+
   // 統合ターミナルを表示
   {
     "key": "ctrl+t",
-    "command": "workbench.action.terminal.toggleTerminal"
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus"
   },
   // 新しい統合ターミナルの作成
   {
-    "key": "ctrl+n",
+    "key": "ctrl+t",
     "command": "workbench.action.terminal.new",
     "when": "terminalFocus"
   },
@@ -88,20 +152,10 @@
     "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus"
   },
-  // パネル内にフォーカス
+  // アクティブなターミナルインスタンスを強制終了
   {
-    "key": "ctrl+w ctrl+w",
-    "command": "workbench.action.focusPanel",
-    "when": "activePanel && editorFocus && vim.mode == 'Normal'"
-  },
-  // 統合ターミナルを閉じる
-  {
-    "key": "ctrl+q",
-    "command": "workbench.action.terminal.toggleTerminal"
-  },
-  {
-    "key": "ctrl+q",
-    "command": "workbench.action.closePanel",
-    "when": "!terminalFocus"
+    "key": "ctrl+d",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
   },
 ]
