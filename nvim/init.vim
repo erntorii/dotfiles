@@ -89,76 +89,8 @@ nnoremap <C-]> g<C-]>
 " vim-plug
 " ------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-" color scheme
-Plug 'arcticicestudio/nord-vim'
-  let g:nord_cursor_line_number_background = 0
-  let g:nord_uniform_diff_background = 0
-
-" NERDTree
-Plug 'preservim/nerdtree'
-  let NERDTreeShowHidden=1
-  nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 30<CR>
-
-" neoterm
-Plug 'kassio/neoterm'
-  let g:neoterm_autoinsert = 1
-  let g:neoterm_default_mod = 'botright'
-  let g:neoterm_autoscroll = 1
-  let g:neoterm_automap_keys = '<C-c>'
-  nnoremap <C-n> :Tnew<CR>
-  nnoremap <silent><C-t> :<c-u>exec v:count.'Topen'<CR>
-  nnoremap <silent><C-l> :Tclear<CR>
-  nnoremap <silent><C-q> :Tclose<CR>
-  nnoremap td :Tclose!<CR>
-  tnoremap <silent><C-w><C-w> <C-\><C-n><C-w><C-w>
-  tnoremap <silent><C-q> <C-\><C-n>:Tclose<CR>
-
-" ウィンドウの幅をctr+eで調整
-Plug 'simeji/winresizer'
-
-" airline
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-  let g:airline_powerline_fonts = 0
-  let g:airline_theme = 'nord'
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_idx_mode = 1
-  let g:airline#extensions#tabline#fnamemod = ':t'
-
-" gitの各種コマンド実行
-Plug 'tpope/vim-fugitive'
-  :command Gs Gstatus
-  :command Gd Gvdiff
-
-" gitのHEADとの差分を表示
-Plug 'airblade/vim-gitgutter'
-
-" linters
-Plug 'dense-analysis/ale'
-  let g:ale_lint_on_text_changed = 0
-  let g:ale_lint_on_enter = 1
-  let g:ale_lint_on_save = 1
-  let g:ale_sign_column_always = 1
-  let g:ale_linters = {
-    \ 'ruby': ['rubocop', 'solargraph'],
-    \ 'dockerfile': ['dockerfile_lint', 'hadolint'],
-    \ 'hcl': ['terraform-fmt'],
-    \ }
-  let g:ale_echo_msg_error_str = 'E'
-  let g:ale_echo_msg_warning_str = 'W'
-  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-" インデントの可視化
-Plug 'Yggdroot/indentLine'
-
 " コメントアウト
 Plug 'tpope/vim-commentary'
-
-" 括弧のレインボーハイライト
-Plug 'luochen1990/rainbow'
-  let g:rainbow_active = 1
-
-" 括弧の補完
-Plug 'jiangmiao/auto-pairs'
 
 " 括弧やタグに対するコマンド
 Plug 'tpope/vim-surround'
@@ -166,43 +98,113 @@ Plug 'tpope/vim-surround'
 " ドットコマンドの強化
 Plug 'tpope/vim-repeat'
 
-" syntax highlighting
-Plug 'cespare/vim-toml'
-Plug 'tpope/vim-haml'
-Plug 'slim-template/vim-slim'
-Plug 'elzr/vim-json'
-  let g:vim_json_syntax_conceal = 0
+if !exists('g:vscode')
+  " fzf
+  Plug 'junegunn/fzf', { 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+    command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+    \ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+    \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+    \ <bang>0)
+    nnoremap <C-g> :Rg<Space>
+    nnoremap <C-p> :Files<CR>
+    nnoremap <C-y> :History<CR>
 
-" ruby
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-endwise'
+  " NERDTree
+  Plug 'preservim/nerdtree'
+    let NERDTreeShowHidden=1
+    nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 30<CR>
 
-" terraform
-Plug 'hashivim/vim-terraform'
-  let g:terraform_fmt_on_save=1
+  " neoterm
+  Plug 'kassio/neoterm'
+    let g:neoterm_autoinsert = 1
+    let g:neoterm_default_mod = 'botright'
+    let g:neoterm_autoscroll = 1
+    let g:neoterm_automap_keys = '<C-c>'
+    nnoremap <C-n> :Tnew<CR>
+    nnoremap <silent><C-t> :<c-u>exec v:count.'Topen'<CR>
+    nnoremap <silent><C-l> :Tclear<CR>
+    nnoremap <silent><C-q> :Tclose<CR>
+    nnoremap td :Tclose!<CR>
+    tnoremap <silent><C-w><C-w> <C-\><C-n><C-w><C-w>
+    tnoremap <silent><C-q> <C-\><C-n>:Tclose<CR>
 
-" fzf
-Plug 'junegunn/fzf', { 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-  command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \ <bang>0)
-  nnoremap <C-g> :Rg<Space>
-  nnoremap <C-p> :Files<CR>
-  nnoremap <C-y> :History<CR>
+  " vim-lsp
+  Plug 'prabirshrestha/vim-lsp'
+    " lintをオフにする
+    let g:lsp_diagnostics_enabled = 0
+  Plug 'mattn/vim-lsp-settings'
+    let g:lsp_settings_servers_dir = '~/dotfiles/nvim/vim-lsp-settings/servers'
 
-" vim-lsp
-Plug 'prabirshrestha/vim-lsp'
-  " lintをオフにする
-  let g:lsp_diagnostics_enabled = 0
-Plug 'mattn/vim-lsp-settings'
-  let g:lsp_settings_servers_dir = '~/.dein/vim-lsp-settings/servers'
+  " オートコンプリートの使用
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-" オートコンプリートの使用
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  " linters
+  Plug 'dense-analysis/ale'
+    let g:ale_lint_on_text_changed = 0
+    let g:ale_lint_on_enter = 1
+    let g:ale_lint_on_save = 1
+    let g:ale_sign_column_always = 1
+    let g:ale_linters = {
+      \ 'ruby': ['rubocop', 'solargraph'],
+      \ 'dockerfile': ['dockerfile_lint', 'hadolint'],
+      \ 'hcl': ['terraform-fmt'],
+      \ }
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+  " airline
+  Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+    let g:airline_powerline_fonts = 0
+    let g:airline_theme = 'nord'
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    let g:airline#extensions#tabline#fnamemod = ':t'
+
+  " gitの各種コマンド実行
+  Plug 'tpope/vim-fugitive'
+    :command Gs Gstatus
+    :command Gd Gvdiff
+
+  " gitのHEADとの差分を表示
+  Plug 'airblade/vim-gitgutter'
+
+  " インデントの可視化
+  Plug 'Yggdroot/indentLine'
+
+  " syntax highlighting
+  Plug 'cespare/vim-toml'
+  Plug 'tpope/vim-haml'
+  Plug 'slim-template/vim-slim'
+  Plug 'elzr/vim-json'
+    let g:vim_json_syntax_conceal = 0
+
+  " 括弧のレインボーハイライト
+  Plug 'luochen1990/rainbow'
+    let g:rainbow_active = 1
+
+  " 括弧の補完
+  Plug 'jiangmiao/auto-pairs'
+
+  " ウィンドウの幅をctr+eで調整
+  Plug 'simeji/winresizer'
+
+  " ruby
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-endwise'
+
+  " terraform
+  Plug 'hashivim/vim-terraform'
+    let g:terraform_fmt_on_save=1
+
+  " color scheme
+  Plug 'arcticicestudio/nord-vim'
+    let g:nord_cursor_line_number_background = 0
+    let g:nord_uniform_diff_background = 0
+end
 call plug#end()
 
 " ------------------------------------------------------------
