@@ -202,12 +202,8 @@ if !exists('g:vscode')
 
   " color scheme
   Plug 'arcticicestudio/nord-vim'
+    colorscheme nord
     let g:nord_cursor_line_number_background = 0
     let g:nord_uniform_diff_background = 0
 end
 call plug#end()
-
-" ------------------------------------------------------------
-" colorscheme
-" ------------------------------------------------------------
-colorscheme nord

@@ -7,7 +7,31 @@
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "neovim.mode != insert"
+    "when": "neovim.mode == normal"
+  },
+  // エクスプローラーを表示
+  {
+    "key": "ctrl+a",
+    "command": "workbench.view.explorer",
+    "when": "neovim.mode == normal"
+  },
+  // 検索を表示
+  {
+  "key": "ctrl+g",
+  "command": "workbench.view.search",
+  "when": "neovim.mode == normal"
+  },
+  // ソース管理を表示
+  {
+    "key": "ctrl+h",
+    "command": "workbench.view.scm",
+    "when": "neovim.mode == normal"
+  },
+  // 拡張機能を表示
+  {
+    "key": "ctrl+x",
+    "command": "workbench.view.extensions",
+    "when": "neovim.mode == normal"
   },
 
   // ------------------------------------------------------------
@@ -64,6 +88,18 @@
   // #エディター
   // ------------------------------------------------------------
 
+  // 最初のエディターにフォーカス
+  {
+    "key": "b f",
+    "command": "workbench.action.firstEditorInGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+  // 最後のエディターにフォーカス
+  {
+    "key": "b l",
+    "command": "workbench.action.lastEditorInGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
   // 前のエディターにフォーカス
   {
     "key": "8",
@@ -82,17 +118,29 @@
     "command": "workbench.action.closeActiveEditor",
     "when": "editorFocus && neovim.mode == normal"
   },
+  // エディターを右に分割
+  {
+    "key": "ctrl+w v",
+    "command": "workbench.action.splitEditorRight",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+  // エディターを下に分割
+  {
+    "key": "ctrl+w s",
+    "command": "workbench.action.splitEditorDown",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+  // 分割したエディターを閉じる
+  {
+    "key": "ctrl+w q",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "editorFocus && neovim.mode == normal"
+  },
 
   // ------------------------------------------------------------
   // #エクスプローラー
   // ------------------------------------------------------------
 
-  // エクスプローラーを表示
-  {
-    "key": "ctrl+a",
-    "command": "workbench.view.explorer",
-    "when": "editorFocus && neovim.mode == normal"
-  },
   // エクスプローラーからファイルを開く
   {
     "key": "Enter",
@@ -132,11 +180,11 @@
   {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
-    "when": "!terminalFocus"
+    "when": "neovim.mode == normal"
   },
   // 新しい統合ターミナルの作成
   {
-    "key": "ctrl+t",
+    "key": "ctrl+n",
     "command": "workbench.action.terminal.new",
     "when": "terminalFocus"
   },
@@ -158,4 +206,15 @@
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
   },
+
+  // ------------------------------------------------------------
+  // #問題
+  // ------------------------------------------------------------
+
+  // 問題の切り替え
+  {
+    "key": "ctrl+l",
+    "command": "workbench.actions.view.problems",
+    "when": "neovim.mode == normal"
+  }
 ]
