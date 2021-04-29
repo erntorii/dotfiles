@@ -7,7 +7,7 @@
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "when": "neovim.mode != insert"
   },
 
   // ------------------------------------------------------------
@@ -24,13 +24,13 @@
   {
     "key": "ctrl+w ctrl+w",
     "command": "workbench.action.focusSideBar",
-    "when": "sideBarVisible && editorFocus && vim.mode == 'Normal' || sideBarVisible && panelFocus"
+    "when": "sideBarVisible && editorFocus && neovim.mode == normal || sideBarVisible && panelFocus"
   },
   // パネル内にフォーカス
   {
     "key": "ctrl+w ctrl+w",
     "command": "workbench.action.focusPanel",
-    "when": "activePanel && editorFocus && vim.mode == 'Normal'"
+    "when": "activePanel && editorFocus && neovim.mode == normal"
   },
 
   // ------------------------------------------------------------
@@ -46,13 +46,13 @@
   {
     "key": "q",
     "command": "workbench.action.closeSidebar",
-    "when": "sideBarFocus || editorFocus && vim.mode == 'Normal'"
+    "when": "sideBarFocus || editorFocus && neovim.mode == normal"
   },
   // パネルを閉じる
   {
     "key": "ctrl+q",
     "command": "workbench.action.closePanel",
-    "when": "panelFocus || editorFocus && vim.mode == 'Normal'"
+    "when": "panelFocus || editorFocus && neovim.mode == normal"
   },
   {
     "key": "ctrl+q",
@@ -68,19 +68,19 @@
   {
     "key": "8",
     "command": "workbench.action.previousEditor",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "when": "editorFocus && neovim.mode == normal"
   },
   // 次のエディターにフォーカス
   {
     "key": "9",
     "command": "workbench.action.nextEditor",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "when": "editorFocus && neovim.mode == normal"
   },
   // 現在のエディターを閉じる
   {
     "key": "b d",
     "command": "workbench.action.closeActiveEditor",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "when": "editorFocus && neovim.mode == normal"
   },
 
   // ------------------------------------------------------------
@@ -91,7 +91,7 @@
   {
     "key": "ctrl+a",
     "command": "workbench.view.explorer",
-    "when": "editorFocus && vim.mode == 'Normal'"
+    "when": "editorFocus && neovim.mode == normal"
   },
   // エクスプローラーからファイルを開く
   {

@@ -3,3 +3,6 @@ configstore
 nvim/.netrwhist
 nvim/dein
 zsh/zshlocal
+xnvim
+nvim/autoload
+nvim/plugged
