@@ -50,10 +50,15 @@ imap <C-f> <Right>
 inoremap jj <Esc>
 
 " 理論行が折り返しでも表示行単位で移動
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+if exists('g:vscode')
+  nmap j gj
+  nmap k gk
+else
+  nnoremap j gj
+  nnoremap k gk
+  vnoremap j gj
+  vnoremap k gk
+endif
 
 " バッファ移動の操作
 nnoremap 8 :bprev<CR>
@@ -202,8 +207,11 @@ if !exists('g:vscode')
 
   " color scheme
   Plug 'arcticicestudio/nord-vim'
-    colorscheme nord
     let g:nord_cursor_line_number_background = 0
     let g:nord_uniform_diff_background = 0
 end
 call plug#end()
+
+if !exists('g:vscode')
+  colorscheme nord
+end

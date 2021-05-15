@@ -7,3 +7,4 @@ xnvim
 nvim/autoload
 nvim/plugged
 nvim/vim-lsp-settings
+anyenv

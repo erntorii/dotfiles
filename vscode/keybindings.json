@@ -7,31 +7,31 @@
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "neovim.mode == normal"
+    "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
   },
   // エクスプローラーを表示
   {
     "key": "ctrl+a",
     "command": "workbench.view.explorer",
-    "when": "neovim.mode == normal"
+    "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
   },
   // 検索を表示
   {
   "key": "ctrl+g",
   "command": "workbench.view.search",
-  "when": "neovim.mode == normal"
-  },
+  "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
+ } ,
   // ソース管理を表示
   {
     "key": "ctrl+h",
     "command": "workbench.view.scm",
-    "when": "neovim.mode == normal"
+    "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
   },
   // 拡張機能を表示
   {
     "key": "ctrl+x",
     "command": "workbench.view.extensions",
-    "when": "neovim.mode == normal"
+    "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
   },
 
   // ------------------------------------------------------------
@@ -136,6 +136,30 @@
     "command": "workbench.action.closeActiveEditor",
     "when": "editorFocus && neovim.mode == normal"
   },
+  // 右のエディターグループにフォーカス
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+  // 下のエディターグループにフォーカス
+  {
+    "key": "ctrl+w j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+  // 左のエディターグループにフォーカス
+  {
+    "key": "ctrl+w h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+  // 上のエディターグループにフォーカス
+  {
+    "key": "ctrl+w k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
 
   // ------------------------------------------------------------
   // #エクスプローラー
@@ -149,25 +173,25 @@
   },
   // エクスプローラーでの新しいファイル
   {
-    "key": "m n",
+    "key": "ctrl+t",
     "command": "explorer.newFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // エクスプローラーでの新しいフォルダー
   {
-    "key": "m a",
+    "key": "ctrl+a",
     "command": "explorer.newFolder",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // エクスプローラーでのファイル名の変更
   {
-    "key": "m m",
+    "key": "ctrl+m",
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   // エクスプローラーでのフォルダーまたはファイルの削除
   {
-    "key": "m d",
+    "key": "ctrl+d",
     "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
@@ -180,23 +204,23 @@
   {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
-    "when": "neovim.mode == normal"
+    "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
   },
   // 新しい統合ターミナルの作成
   {
-    "key": "ctrl+n",
+    "key": "ctrl+t",
     "command": "workbench.action.terminal.new",
     "when": "terminalFocus"
   },
   // 前のターミナルにフォーカス
   {
-    "key": "8",
+    "key": "cmd+8",
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
   },
   // 次のターミナルにフォーカス
   {
-    "key": "9",
+    "key": "cmd+9",
     "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus"
   },
@@ -215,6 +239,6 @@
   {
     "key": "ctrl+l",
     "command": "workbench.actions.view.problems",
-    "when": "neovim.mode == normal"
+    "when": "neovim.mode == normal && !sideBarFocus && !panelFocus"
   }
 ]
