@@ -8,7 +8,7 @@
     "editor.renderLineHighlight" : "all",
     "editor.cursorBlinking": "solid",
     "workbench.startupEditor": "none",
-    "window.openFoldersInNewWindow": "off",
+    "window.openFoldersInNewWindow": "on",
     "window.newWindowDimensions": "maximized",
     "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "material-icon-theme",

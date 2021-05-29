@@ -1,10 +1,7 @@
-.vscode
+anyenv
 configstore
-nvim/.netrwhist
-nvim/dein
-zsh/zshlocal
-xnvim
 nvim/autoload
 nvim/plugged
 nvim/vim-lsp-settings
-anyenv
+xnvim
+zsh/zshlocal

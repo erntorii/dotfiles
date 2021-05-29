@@ -70,7 +70,7 @@
   {
     "key": "q",
     "command": "workbench.action.closeSidebar",
-    "when": "sideBarFocus || editorFocus && neovim.mode == normal"
+    "when": "editorFocus && neovim.mode == normal"
   },
   // パネルを閉じる
   {
@@ -158,6 +158,38 @@
   {
     "key": "ctrl+w k",
     "command": "workbench.action.focusAboveGroup",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+
+  // ------------------------------------------------------------
+  // #ファイル操作
+  // ------------------------------------------------------------
+
+  // 新しいファイル
+  {
+    "key": "ctrl+n",
+    "command": "extension.advancedNewFile",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+
+  // ファイルパスの変更
+  {
+    "key": "ctrl+m",
+    "command": "fileutils.moveFile",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+
+  // ファイルの複製
+  {
+    "key": "ctrl+c",
+    "command": "fileutils.duplicateFile",
+    "when": "editorFocus && neovim.mode == normal"
+  },
+
+  // ファイルの削除
+  {
+    "key": "ctrl+d",
+    "command": "fileutils.removeFile",
     "when": "editorFocus && neovim.mode == normal"
   },
 
