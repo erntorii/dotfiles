@@ -162,73 +162,6 @@
   },
 
   // ------------------------------------------------------------
-  // #ファイル操作
-  // ------------------------------------------------------------
-
-  // 新しいファイル
-  {
-    "key": "ctrl+n",
-    "command": "extension.advancedNewFile",
-    "when": "editorFocus && neovim.mode == normal"
-  },
-
-  // ファイルパスの変更
-  {
-    "key": "ctrl+m",
-    "command": "fileutils.moveFile",
-    "when": "editorFocus && neovim.mode == normal"
-  },
-
-  // ファイルの複製
-  {
-    "key": "ctrl+c",
-    "command": "fileutils.duplicateFile",
-    "when": "editorFocus && neovim.mode == normal"
-  },
-
-  // ファイルの削除
-  {
-    "key": "ctrl+d",
-    "command": "fileutils.removeFile",
-    "when": "editorFocus && neovim.mode == normal"
-  },
-
-  // ------------------------------------------------------------
-  // #エクスプローラー
-  // ------------------------------------------------------------
-
-  // エクスプローラーからファイルを開く
-  {
-    "key": "Enter",
-    "command": "list.select",
-    "when": "explorerViewletVisible && filesExplorerFocus"
-  },
-  // エクスプローラーでの新しいファイル
-  {
-    "key": "ctrl+t",
-    "command": "explorer.newFile",
-    "when": "explorerViewletVisible && filesExplorerFocus"
-  },
-  // エクスプローラーでの新しいフォルダー
-  {
-    "key": "ctrl+a",
-    "command": "explorer.newFolder",
-    "when": "explorerViewletVisible && filesExplorerFocus"
-  },
-  // エクスプローラーでのファイル名の変更
-  {
-    "key": "ctrl+m",
-    "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus"
-  },
-  // エクスプローラーでのフォルダーまたはファイルの削除
-  {
-    "key": "ctrl+d",
-    "command": "deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus"
-  },
-
-  // ------------------------------------------------------------
   // #統合ターミナル
   // ------------------------------------------------------------
 
@@ -246,13 +179,13 @@
   },
   // 前のターミナルにフォーカス
   {
-    "key": "cmd+8",
+    "key": "ctrl+k",
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
   },
   // 次のターミナルにフォーカス
   {
-    "key": "cmd+9",
+    "key": "ctrl+j",
     "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus"
   },

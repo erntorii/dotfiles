@@ -8,8 +8,9 @@
     "editor.renderLineHighlight" : "all",
     "editor.cursorBlinking": "solid",
     "workbench.startupEditor": "none",
-    "window.openFoldersInNewWindow": "on",
+    "window.openFoldersInNewWindow": "off",
     "window.newWindowDimensions": "maximized",
+    "workbench.list.automaticKeyboardNavigation": false,
     "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.folders.color": "#616e88",
@@ -18,8 +19,13 @@
     "editor.minimap.enabled": false,
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/toriierina/dotfiles/nvim/init.vim",
-    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YXdzNFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiMDAwMDAwXCIsXCJGRjAwMDBcIl0sXCJmb3JtYXRXaWR0aFwiOlwiMjQwXCIsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo4MjcsXCJoZWlnaHRcIjoxMTY5fSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.visible": false,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "[markdown]": {
+      "files.trimTrailingWhitespace": false
+    },
+    "security.workspace.trust.untrustedFiles": "open"
 }

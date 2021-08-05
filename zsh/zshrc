@@ -12,14 +12,14 @@ fi
 
 # Customize to your needs...
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # Neovimの設定ファイル読み込み先
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 export XDG_CONFIG_HOME=$HOME/dotfiles
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # peco
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
@@ -28,57 +28,71 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # anyenv
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 export PATH=$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init -)"
 
-# ------------------------------------------------------------ 
-# rbenv
-# ------------------------------------------------------------ 
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+# ------------------------------------------------------------
+# pyenv
+# ------------------------------------------------------------
+export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-# ------------------------------------------------------------ 
-# nodenv
-# ------------------------------------------------------------ 
-export PATH=$HOME/.nodenv/versions/15.5.0/bin:$PATH
-eval "$(nodenv init -)" # nodenvを自動的にロードする
-
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # mysql
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # fzf
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 export PATH="$PATH:$HOME/.fzf/bin"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 30% --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # AWS CLI completer
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
   source /usr/local/bin/aws_zsh_completer.sh
 fi
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # source zshlocal
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 if [ -f ~/.zshlocal ]; then
   source ~/.zshlocal
 fi
 
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 # alias
-# ------------------------------------------------------------ 
+# ------------------------------------------------------------
 alias vi='nvim'
 alias aws_mfa='oathtool --totp --base32 $AWS_MFA_SECRET_KEY | pbcopy ; pbpaste'
 alias iam_mfa='oathtool --totp --base32 $IAM_MFA_SECRET_KEY | pbcopy ; pbpaste'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.12.25/terraform terraform
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/toriierina/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/toriierina/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/toriierina/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/toriierina/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

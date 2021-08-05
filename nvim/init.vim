@@ -90,13 +90,18 @@ tnoremap <silent> <ESC> <C-\><C-n>
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
 
+" vscode commentary
+if exists('g:vscode')
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+endif
+
 " ------------------------------------------------------------
 " vim-plug
 " ------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-" コメントアウト
-Plug 'tpope/vim-commentary'
-
 " 括弧やタグに対するコマンド
 Plug 'tpope/vim-surround'
 
@@ -104,6 +109,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 if !exists('g:vscode')
+  " コメントアウト
+  Plug 'tpope/vim-commentary'
+
   " fzf
   Plug 'junegunn/fzf', { 'do': './install --all' } | Plug 'junegunn/fzf.vim'
     command! -bang -nargs=* Rg
