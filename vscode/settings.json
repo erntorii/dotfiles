@@ -27,5 +27,7 @@
     "[markdown]": {
       "files.trimTrailingWhitespace": false
     },
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.bracketPairColorization.enabled": true
 }
