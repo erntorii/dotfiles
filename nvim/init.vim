@@ -112,18 +112,6 @@ if !exists('g:vscode')
   " コメントアウト
   Plug 'tpope/vim-commentary'
 
-  " fzf
-  Plug 'junegunn/fzf', { 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-    command! -bang -nargs=* Rg
-    \ call fzf#vim#grep(
-    \ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
-    \ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-    \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-    \ <bang>0)
-    nnoremap <C-g> :Rg<Space>
-    nnoremap <C-p> :Files<CR>
-    nnoremap <C-y> :History<CR>
-
   " NERDTree
   Plug 'preservim/nerdtree'
     let NERDTreeShowHidden=1
@@ -189,7 +177,6 @@ if !exists('g:vscode')
   Plug 'Yggdroot/indentLine'
 
   " syntax highlighting
-  Plug 'cespare/vim-toml'
   Plug 'tpope/vim-haml'
   Plug 'slim-template/vim-slim'
   Plug 'elzr/vim-json'
